@@ -36,6 +36,6 @@ $ python run.py --dataset=Amazon_photos --power 9 --alpha 1.2
 
 #### Datasets
 
-&#x20;You can download data from <https://drive.google.com/file/d/179ttYDJWERdMam6BYjVAKkgKrQ5MXGfu/view?usp=drive_link>.\
+&#x20;You can download data from <[https://drive.google.com/file/d/179ttYDJWERdMam6BYjVAKkgKrQ5MXGfu/view?usp=drive_link](https://drive.google.com/file/d/179ttYDJWERdMam6BYjVAKkgKrQ5MXGfu/view?usp=sharing)>.
 \
 \\
