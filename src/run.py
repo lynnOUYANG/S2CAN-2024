@@ -69,7 +69,7 @@ for run in range(n_runs):
 
     t0 = time()
 
-    P, Q = run_my_model(features, k, norm_adj, p, alpha,method=method,dataset=dataset,gamma=gamma,T=T)
+    P, Q = run_SSCAG(features, k, norm_adj, p, alpha,method=method,dataset=dataset,gamma=gamma,T=T)
 
 
 
