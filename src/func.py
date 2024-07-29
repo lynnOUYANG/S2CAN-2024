@@ -170,7 +170,7 @@ def subspace_svd(
     Q = factor*Q
 
     Q, _ = linalg.qr(Q, mode="economic")
-    print(Q.shape)
+    
 
 
     # project M to the (k + p) dimensional space using the basis vectors
