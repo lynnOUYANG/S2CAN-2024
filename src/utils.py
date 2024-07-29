@@ -141,7 +141,7 @@ def PowerIteration(feature, adj_normalized, power, alpha):
 
 
 
-def run_SSCAG(X, k, adj_normalized, power, alpha,method="sub",dataset='acm',beta=0.9,T=7):
+def run_SSCAG(X, k, adj_normalized, power, alpha,method="sub",dataset='acm',gamma=0.9,T=7):
 
   x = X.sum(0)
   D = X @ x
@@ -165,6 +165,6 @@ def run_SSCAG(X, k, adj_normalized, power, alpha,method="sub",dataset='acm',beta
 
   elif method == 'mod':
           Z = PowerIteration(X, adj_normalized, power, alpha)
-          Q = KSI_decompose_B(Z=Z, dim=k,T=T,beta=beta)
+          Q = KSI_decompose_B(Z=Z, dim=k,T=T,gamma=gamma)
   P = SNEM_rounding(Q)
   return P, Q
