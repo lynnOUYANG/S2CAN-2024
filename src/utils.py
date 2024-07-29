@@ -128,7 +128,7 @@ def clustering_accuracy(y_true, y_pred):
 
 
 # @tf.function
-def approx_RSR(feature, adj_normalized, power, alpha):
+def PowerIteration(feature, adj_normalized, power, alpha):
   #feature = preprocessing.normalize(feature, norm='l2', axis=1)
   feat0 = feature.copy()
   factor = power if alpha == 1.0 else (1.-alpha)/ (1. - np.power(alpha, power + 1))
@@ -157,14 +157,14 @@ def run_SSCAG(X, k, adj_normalized, power, alpha,method="sub",dataset='acm',beta
      cost1=2*m*n+power*(nnz*n+m*n)+2*7*(m*n*(k+11))+2*m*n*(k+11)+(2*m+n)*(k+11)**2
      cost2=2*7*(m*n*(k+10)+2*m*(k+10)+power*(nnz*(k+10)+m*(k+10)))+2*m*n*(k+11)+m*(k+10)*2+power*(nnz*(k+10)+m*(k+10))+(2*m+n)*(k+11)**2
      if cost1<cost2:
-         Z = approx_RSR(X, adj_normalized, power, alpha)
+         Z = PowerIteration(X, adj_normalized, power, alpha)
          Q= sub_randomized_svd(Z, n_components=k,n_iter=T)
 
      else:
         Q = subspace_svd(adj_normalized, X, n_components=k, n_iter=T,n_T=power, alpha=alpha)
 
   elif method == 'mod':
-          Z = approx_RSR(X, adj_normalized, power, alpha)
+          Z = PowerIteration(X, adj_normalized, power, alpha)
           Q = KSI_decompose_B(Z=Z, dim=k,T=T,beta=beta)
   P = SNEM_rounding(Q)
   return P, Q
