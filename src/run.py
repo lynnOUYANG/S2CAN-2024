@@ -21,7 +21,7 @@ flags.DEFINE_float('alpha', '0.9', 'the weight parameter in PowerIteration.')
 flags.DEFINE_integer('fdim', '0', 'feature dimension.')
 flags.DEFINE_string('method', 'sub', 'choose the specific algorithm mentioned in related paper.')
 flags.DEFINE_float('gamma', '0.9', 'weight parameter for the second term in modularity maximization.')
-flags.DEFINE_integer('T', 7, 'the itertate times of PowerIteration')
+flags.DEFINE_integer('T', 7, 'the itertate times to get convergence results')
 
 dataset = flags.FLAGS.dataset
 p = flags.FLAGS.tau
