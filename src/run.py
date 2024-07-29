@@ -17,10 +17,10 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('dataset', 'acm', 'Name of the graph dataset (`acm`, `dblp`, `arxiv`, `pubmed` or `wiki`).')
 flags.DEFINE_integer('tau', 10, 'Propagation order.')
 flags.DEFINE_integer('runs', 5, 'Number of runs per power.')
-flags.DEFINE_float('alpha', '0.9', 'decay.')
+flags.DEFINE_float('alpha', '0.9', 'the weight parameter in PowerIteration.')
 flags.DEFINE_integer('fdim', '0', 'feature dimension.')
-flags.DEFINE_string('method', 'sub', 'the method in to use.')
-flags.DEFINE_float('gamma', '0.9', 'the method in to use.')
+flags.DEFINE_string('method', 'sub', 'choose the specific algorithm mentioned in related paper.')
+flags.DEFINE_float('gamma', '0.9', 'weight parameter for the second term in modularity maximization.')
 flags.DEFINE_integer('T', 7, 'the itertate times of PowerIteration')
 
 dataset = flags.FLAGS.dataset
