@@ -17,7 +17,7 @@ scipy --1.10.1
 | Parameter |   Type  | Default | Description                                                             |
 | :-------: | :-----: | :-----: | :---------------------------------------------------------------------- |
 | `dataset` |  string |  `acm`  | Name of the graph dataset (`acm`, `dblp`, `arxiv`, `pubmed` or `wiki`). |
-|  `power`  | integer |   `2`   | First power to test.                                                    |
+|    `tau`  | integer |   `10`  | Propagation order.                                                    |
 |  `alpha`  |  float  |  `0.9`  | weight for power.                                                       |
 |   `runs`  | integer |   `5`   | Number of runs.                                                         |
 
