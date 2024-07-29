@@ -1,4 +1,4 @@
-# S^2CAG: Spectral Subspace Clustering for Attributed Graphs
+# S2CAG: Spectral Subspace Clustering for Attributed Graphs
 
 ## Envirorment
 
