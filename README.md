@@ -1,4 +1,4 @@
-# Orthogonal Procrustes Subspace Clustering for Attributed Graphs
+# S^2CAG: Spectral Subspace Clustering for Attributed Graphs
 
 ## Envirorment
 
@@ -22,16 +22,9 @@ scipy --1.10.1
 |   `runs`  | integer |   `5`   | Number of runs.                                                         |
 
 ### Example
-
+You can get the results in paper by running following instruction.
 ```bash
-$ python run.py --dataset=acm --power 15 --alpha 0.8 
-$ python run.py --dataset=dblp --power 10 --alpha 0.9
-$ python run.py --dataset=wiki --power 6 --alpha 1.7
-$ python run.py --dataset=pubmed --power 175 --alpha 1.8
-$ python run.py --dataset=arxiv --power 30 --alpha 1.5
-$ python run.py --dataset=cora --power 20 --alpha 0.9
-$ python run.py --dataset=citeseer --power 60 --alpha 0.9
-$ python run.py --dataset=Amazon_photos --power 9 --alpha 1.2
+$bash run.sh 
 ```
 
 #### Datasets
