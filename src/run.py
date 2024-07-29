@@ -1,9 +1,6 @@
 import tensorflow as tf
 from tensorflow.python.util import deprecation
 deprecation._PRINT_DEPRECATION_WARNINGS = False
-# from sklearn.kernel_approximation import RBFSampler, PolynomialCountSketch, Nystroem
-# from sklearn.feature_extraction.text import TfidfTransformer
-# from sklearn.neighbors import kneighbors_graph
 from time import time
 from scipy import sparse
 from sklearn.cluster import KMeans
@@ -24,8 +21,7 @@ flags.DEFINE_float('alpha', '0.9', 'decay.')
 flags.DEFINE_integer('fdim', '0', 'feature dimension.')
 flags.DEFINE_string('method', 'sub', 'the method in to use.')
 flags.DEFINE_float('gamma', '0.9', 'the method in to use.')
-flags.DEFINE_integer('T', 7, 'the itertate rounds')
-flags.DEFINE_bool('label_pre', False, 'the itertate rounds')
+flags.DEFINE_integer('T', 7, 'the itertate times of PowerIteration')
 
 dataset = flags.FLAGS.dataset
 p = flags.FLAGS.tau
@@ -35,7 +31,6 @@ fdim = flags.FLAGS.fdim
 method = flags.FLAGS.method
 gamma=flags.FLAGS.gamma
 T=flags.FLAGS.T
-label_pre = flags.FLAGS.label_pre
 adj, features, labels, n_classes =  datagen(dataset)
 
 if fdim>0 and fdim>n_classes:
