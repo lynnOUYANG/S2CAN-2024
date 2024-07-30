@@ -31,6 +31,6 @@ $bash run.sh
 
 #### Datasets
 
-&#x20;You can download data from <[https://drive.google.com/file/d/179ttYDJWERdMam6BYjVAKkgKrQ5MXGfu/view?usp=drive_link](https://drive.google.com/file/d/179ttYDJWERdMam6BYjVAKkgKrQ5MXGfu/view?usp=sharing)>.
+&#x20;You can download data from <https://www.dropbox.com/scl/fi/9olm295mxf415c5pf8hvy/S2CAG-datasets.zip?rlkey=3iuzartucsdatbolgvqv1gcfr&st=1ucjwnkf&dl=0>.
 
 
