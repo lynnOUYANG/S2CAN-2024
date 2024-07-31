@@ -50,7 +50,7 @@ def SNEM_rounding(vectors, T=100):
     return labels
 
 
-def KSI_decompose_B(Z, dim, T=100,gamma=0.9):
+def KSI_decompose_B(Z, dim, tau=100,gamma=0.9):
     random_state = 0
     random_state = check_random_state(random_state)
     Z = adapt(Z)
@@ -63,7 +63,7 @@ def KSI_decompose_B(Z, dim, T=100,gamma=0.9):
     D_Z_3 = Z.dot(D_Z_2)
     D_sum = D_Z_3.sum()
 
-    for i in range(T):
+    for i in range(tau):
         Z_T=Z.T.dot(Q)
         A_Z=Z.dot(Z_T)
         D_Z_1 = one_vec.T.dot(A_Z)
@@ -170,7 +170,7 @@ def subspace_svd(
     Q = factor*Q
 
     Q, _ = linalg.qr(Q, mode="economic")
-    
+
 
 
     # project M to the (k + p) dimensional space using the basis vectors
