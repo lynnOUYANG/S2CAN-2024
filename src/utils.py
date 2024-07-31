@@ -150,13 +150,14 @@ def run_SSCAG(X, k, adj_normalized, T, alpha,method="sub",dataset='acm',gamma=0.
   D = np.sqrt(D)
   D = sparse.diags(1.0/D)
   X = D.dot(X)
-  m = X.shape[0]
-  n = X.shape[1]
-  nnz=adj_normalized.nnz
+  n = X.shape[0]
+  d = X.shape[1]
+  m=adj_normalized.nnz
+
   if method =='sub':
-     cost1=2*m*n+tau*(nnz*n+m*n)+2*7*(m*n*(k+11))+2*m*n*(k+11)+(2*m+n)*(k+11)**2
-     cost2=2*7*(m*n*(k+10)+2*m*(k+10)+tau*(nnz*(k+10)+m*(k+10)))+2*m*n*(k+11)+m*(k+10)*2+tau*(nnz*(k+10)+m*(k+10))+(2*m+n)*(k+11)**2
-     if cost1<cost2:
+     integr=m*d*T+2*(tau+1)*n*d*(k+10)
+     naive=2*(tau+1)*(n*d+m*T)*(k+10)
+     if integr<naive:
          Z = PowerIteration(X, adj_normalized, T, alpha)
          Q= sub_randomized_svd(Z, n_components=k,n_iter=tau)
 
