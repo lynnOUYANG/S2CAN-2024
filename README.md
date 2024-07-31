@@ -17,10 +17,10 @@ scipy --1.10.1
 | Parameter |   Type  | Default | Description                                                             |
 | :-------: | :-----: | :-----: | :---------------------------------------------------------------------- |
 | `dataset` |  string |  `acm`  | Name of the graph dataset (`acm`, `dblp`, `arxiv`, `pubmed` or `wiki`). |
-|  `tau`    | integer |   `10`  | Propagation order.                                                      |
+|  `T`      | integer |   `10`  | Propagation order.                                                      |
 |  `alpha`  |  float  |  `0.9`  | the weight parameter in PowerIteration.                                 |
 |  `gamma`  |  float  |   `1.0` | weight parameter for the second term in modularity maximization.        |
-|  `T`      | integer |   `7`   | the itertate times to get convergence results.                          |
+|  `tau`    | integer |   `7`   | the itertate times to get convergence results.                          |
 |  `runs`   | integer |   `5`   | Number of runs.                                                         |
 
 ### Example
