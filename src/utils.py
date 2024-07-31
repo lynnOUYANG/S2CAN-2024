@@ -141,7 +141,7 @@ def PowerIteration(feature, adj_normalized, power, alpha):
 
 
 
-def run_SSCAG(X, k, adj_normalized, power, alpha,method="sub",dataset='acm',gamma=0.9,T=7):
+def run_SSCAG(X, k, adj_normalized, T, alpha,method="sub",dataset='acm',gamma=0.9,tau=7):
 
   x = X.sum(0)
   D = X @ x
@@ -154,17 +154,17 @@ def run_SSCAG(X, k, adj_normalized, power, alpha,method="sub",dataset='acm',gamm
   n = X.shape[1]
   nnz=adj_normalized.nnz
   if method =='sub':
-     cost1=2*m*n+power*(nnz*n+m*n)+2*7*(m*n*(k+11))+2*m*n*(k+11)+(2*m+n)*(k+11)**2
-     cost2=2*7*(m*n*(k+10)+2*m*(k+10)+power*(nnz*(k+10)+m*(k+10)))+2*m*n*(k+11)+m*(k+10)*2+power*(nnz*(k+10)+m*(k+10))+(2*m+n)*(k+11)**2
+     cost1=2*m*n+tau*(nnz*n+m*n)+2*7*(m*n*(k+11))+2*m*n*(k+11)+(2*m+n)*(k+11)**2
+     cost2=2*7*(m*n*(k+10)+2*m*(k+10)+tau*(nnz*(k+10)+m*(k+10)))+2*m*n*(k+11)+m*(k+10)*2+tau*(nnz*(k+10)+m*(k+10))+(2*m+n)*(k+11)**2
      if cost1<cost2:
-         Z = PowerIteration(X, adj_normalized, power, alpha)
-         Q= sub_randomized_svd(Z, n_components=k,n_iter=T)
+         Z = PowerIteration(X, adj_normalized, T, alpha)
+         Q= sub_randomized_svd(Z, n_components=k,n_iter=tau)
 
      else:
-        Q = subspace_svd(adj_normalized, X, n_components=k, n_iter=T,n_T=power, alpha=alpha)
+        Q = subspace_svd(adj_normalized, X, n_components=k, n_iter=tau,n_T=T, alpha=alpha)
 
   elif method == 'mod':
-          Z = PowerIteration(X, adj_normalized, power, alpha)
-          Q = KSI_decompose_B(Z=Z, dim=k,T=T,gamma=gamma)
+          Z = PowerIteration(X, adj_normalized, T, alpha)
+          Q = KSI_decompose_B(Z=Z, dim=k,tau=tau,gamma=gamma)
   P = SNEM_rounding(Q)
   return P, Q
