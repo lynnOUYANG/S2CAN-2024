@@ -155,8 +155,8 @@ def run_SSCAG(X, k, adj_normalized, T, alpha,method="sub",dataset='acm',gamma=0.
   m=adj_normalized.nnz
 
   if method =='sub':
-     integr=m*d*T+2*(tau+1)*n*d*(k+10)
-     naive=2*(tau+1)*(n*d+m*T)*(k+10)
+     integr=m*d*T+2*(tau+1)*n*d*(k+10)+3*n*(k+10)**2
+     naive=2*(tau+1)*(n*d+m*T)*(k+10)+3*n*(k+10)**2
      if integr<naive:
          Z = PowerIteration(X, adj_normalized, T, alpha)
          Q= sub_randomized_svd(Z, n_components=k,n_iter=tau)
